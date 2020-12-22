@@ -1,0 +1,39 @@
+Distributed version control system (DVCS) - Git
+
+
+Create a Distributed version control system, and put files into it.
+git init, git add ., git commit -m "message", git push origin master
+
+Replicate a DVCS on your local machine, make changes to its files, and then put them back into it.
+git clone "url", edit files, git add "filename", git commit -m "message", git push origin master
+
+List down all the files which have changed in the last commit. List only the file names.
+git status, git log, git reflog
+
+You’ve accidentally added some files on a DVCS. Remove those files from the DVCS without deleting them from your local system.
+git rm filename
+
+You’ve accidentally committed some files on a DVCS. Revert the DVCS to a previous stable state.
+git checkout commit_number_of_stable_state, git reset --hard commit_number
+
+Create a DVCS capable of supporting 2 similar dev environments. Make changes in the files which are present on both of them and then merge the environments into one.
+git branch dev, git branch test, git add ., git checkout test/dev, git push origin test/dev, git branch new, git merge test/dev
+
+You have a DVCS supporting your prod, test and dev environments, you need to make sure that only a particular set of commits from the test environment are added in the prod environment. What & how would you do it?
+git checkout prod, git merge commit_number
+
+
+
+
+Scenario Questions:
+
+If the central repository is two commits ahead of your local repository, how will you push your code ?
+git pull origin master, resolve any conflicts, git push origin master
+
+I have two branches, A and B, where A is my main branch, and B is a the branch with new feature, describe the step by step process getting all of B’s code in A
+git checkout A, git merge B
+
+Say you have to do an experimental change but still want to have a clean copy of your old code, should you use branching ? Explain your decision). 
+Yes, we should use branching in above case. Create new branch from the branch you want to do experimantal changes (git branch newbranch). 
+checkout this newly created branch (git checkout newbranch). Do changes in required files. Then git add . , git commit -m "message" and 
+finally git push origin newbranch.
