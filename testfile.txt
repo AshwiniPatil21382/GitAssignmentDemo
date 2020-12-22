@@ -1,7 +1,2 @@
 
-This is first file in test branch
-
-
-This is second line
-
-This is third line in test branch file
+New line for testing merge conflict
